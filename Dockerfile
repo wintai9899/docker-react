@@ -2,7 +2,7 @@
 FROM node:16-alpine AS builder
 
 # specify working directory 
-WORKDIR /app
+WORKDIR '/app'
 
 # install dependencies 
 COPY package.json .
@@ -15,3 +15,4 @@ RUN npm run build
 FROM nginx
 # copy build file from build phase
 COPY --from=builder /app/build /usr/share/nginx/html
+
