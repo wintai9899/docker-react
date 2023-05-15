@@ -1,0 +1,19 @@
+version: '3'
+services:
+  my-react-app:
+    image: wentai9899/frontend
+    ports:
+      - 3000:3000
+    volumes:
+      # bookmark 
+      - /app/node_modules
+      # map current directory to /app
+      - .:/app
+  
+  tests:
+    image: wentai9899/frontend
+    volumes:
+      - /app/node_modules
+      - .:/app
+    command: ["npm","run","test"]
+      
